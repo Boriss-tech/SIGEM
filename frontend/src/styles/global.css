@@ -6,7 +6,18 @@ body { background: var(--app-bg); }
 .sidebar-link:hover { color: #fff; background: rgba(255,255,255,.08); }
 .sidebar-link.active { color: #fff; background: rgba(255,255,255,.16); font-weight: 600; }
 .app-main { flex: 1; min-width: 0; }
-.login-bg { min-height: 100vh; display: grid; place-items: center; padding: 1rem; background: linear-gradient(135deg, #0f2742, #1d4e89); }
 .dropzone { border: 2px dashed #ced4da; border-radius: .6rem; padding: 2rem; text-align: center; cursor: pointer; background: #fff; }
 .dropzone:hover, .dropzone:focus-visible { border-color: #0d6efd; }
 .offcanvas.sidebar { color: #fff; }
+
+/* ---------- Login (panel dividido) ---------- */
+.login-split { display: flex; min-height: 100vh; background: #fff; }
+.login-brand { flex: 1 1 52%; background: var(--sidebar-bg); color: #fff; padding: 4rem; flex-direction: column; justify-content: space-between; }
+.login-logo { width: 44px; height: 44px; border-radius: 12px; background: #fff; color: var(--sidebar-bg); display: grid; place-items: center; font-size: 1.3rem; }
+.login-logo-dark { background: var(--sidebar-bg); color: #fff; }
+.login-headline { font-size: 2.6rem; font-weight: 700; line-height: 1.1; max-width: 520px; margin-bottom: 2rem; }
+.login-feature { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.5rem; max-width: 520px; }
+.login-feature-icon { width: 44px; height: 44px; flex: none; border-radius: 10px; background: rgba(255,255,255,.12); display: grid; place-items: center; font-size: 1.2rem; }
+.login-soft { color: #c9d4e3; }
+.login-form-side { flex: 1 1 48%; display: flex; align-items: center; justify-content: center; padding: 2rem; }
+.login-form-wrap { width: 100%; max-width: 400px; }

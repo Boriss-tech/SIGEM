@@ -22,28 +22,38 @@ export default function LoginForm({ onSubmit, error }: Props) {
   return (
     <Form onSubmit={handleSubmit(onSubmit)} noValidate>
       {error && <Alert variant="danger" role="alert">{error}</Alert>}
+
       <Form.Group className="mb-3" controlId="email">
-        <Form.Label>Correo</Form.Label>
-        <Form.Control type="email" autoComplete="username" isInvalid={!!errors.email} {...register('email')} />
+        <Form.Label className="fw-semibold">Correo</Form.Label>
+        <Form.Control size="lg" type="email" placeholder="nombre@minimarket.cl" autoComplete="username"
+          isInvalid={!!errors.email} {...register('email')} />
         <Form.Control.Feedback type="invalid">{errors.email?.message}</Form.Control.Feedback>
       </Form.Group>
-      <Form.Group className="mb-3" controlId="password">
-        <Form.Label>Contraseña</Form.Label>
-        <InputGroup hasValidation>
+
+      <Form.Group className="mb-4" controlId="password">
+        <Form.Label className="fw-semibold">Contraseña</Form.Label>
+        <InputGroup size="lg" hasValidation>
           <Form.Control type={show ? 'text' : 'password'} autoComplete="current-password"
             isInvalid={!!errors.password} {...register('password')} />
-          <Button variant="outline-secondary" onClick={() => setShow((s) => !s)} aria-label="Mostrar u ocultar contraseña">
+          <Button variant="outline-secondary" onClick={() => setShow((s) => !s)}
+            aria-label={show ? 'Ocultar contraseña' : 'Mostrar contraseña'}>
             <i className={`bi ${show ? 'bi-eye-slash' : 'bi-eye'}`} />
           </Button>
           <Form.Control.Feedback type="invalid">{errors.password?.message}</Form.Control.Feedback>
         </InputGroup>
       </Form.Group>
-      <Button type="submit" className="w-100" disabled={isSubmitting}>
+
+      <Button type="submit" size="lg" className="w-100 fw-semibold" disabled={isSubmitting}>
         {isSubmitting ? 'Ingresando…' : 'Iniciar sesión'}
       </Button>
 
+      <p className="text-muted small mt-3 mb-0">
+        ¿Problemas para ingresar? Estamos disponibles para ayudarte.
+      </p>
+
+      {/* Solo en modo demo (VITE_USE_MOCK=true). Desaparece al conectar el backend. */}
       {USE_MOCK && (
-        <div className="mt-4">
+        <div className="mt-4 pt-3 border-top">
           <small className="text-muted d-block mb-2">Modo demo (clave: demo1234). Entrar como:</small>
           <div className="d-flex flex-wrap gap-2">
             {DEMO_ACCOUNTS.map((a) => (
